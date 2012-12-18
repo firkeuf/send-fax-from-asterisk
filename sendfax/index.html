@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAX for Asterisk</title>
+
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+<div class="container">
+  <div class="content">
+    <h1>FAX for Asterisk</h1>
+    <p>Выберете файл для загрузки. 
+    <!-- FORM_START --> 
+    <form action="sendfax.php" method="post" enctype="multipart/form-data" name="form1" id="form1">
+      <table width="892" border="0" cellpadding="0" cellspacing="0">
+
+        <tr>
+          <td class="formLabel">File for FAX</td>
+          <td><label for="faxFile"></label>
+          <input type="file" name="faxFile" id="faxFile" /></td>
+          <td class="descriptionText">Поддерживаемые форматы: <strong>tiff</strong>, <strong>jpg</strong>, <strong>pdf</strong> </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" name="sendFax" id="sendFax" value="Получить код" /></td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      </p>
+      <p>&nbsp;</p>
+    </form>
+    <!-- FORM_END --> 
+    <p>&nbsp;</p>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+       <p class="footer-copyrights"> Uvita (<a href="http://uvita.com.ua">http://uvita.com.ua</a>). </p>
+
+</body>
+</html>
