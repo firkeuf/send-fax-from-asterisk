@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>FAX for Asterisk</title>
 
-<link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link href="css/css.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -106,6 +106,7 @@ if($error == $ERROR_NO_ERROR && $input_file_type == "pdf") {
 	$gs_command = "/usr/local/bin/gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=tiffg3 -sOutputFile=${output_file} -f $input_file " ;
 	$gs_command_output = system($gs_command, $retval);
         unlink($input_file);
+        chmod($output_file, 0660);
 		
 	if ($retval != 0) {
 		$message = "There was an error converting your PDF file to TIF. Try uploading the file again or with an older version of PDF"; 
@@ -123,6 +124,7 @@ if($error == $ERROR_NO_ERROR && $input_file_type == "jpg" || $input_file_type ==
 	$gs_command = "/usr/local/bin/convert -define quantum:polarity=min-is-white -rotate '90>' -density 204x196 -resize 1728x -compress Group4 -type bilevel -monochrome ${input_file} ${output_file}";
 	system($gs_command, $retval);
         unlink($input_file);
+        chmod($output_file, 0660);
         
        
 		
@@ -151,6 +153,7 @@ END HTML HACK to supress errors appearing on screen.
 if ($error == $ERROR_NO_ERROR) {
 	echo $message."<br>";
         echo "<span class='back-link'><a href='/sendfax/index.html'> <-- Назад.</a></span>";
+        
         	
 } if ($error == $ERROR_CONVERTING_DOCUMENT) {
 	echo "<span class='error'><a href='/sendfax/index.html'>Возникли проблемы с конвертацией Вашего документа </a>". 
