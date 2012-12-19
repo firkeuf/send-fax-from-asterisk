@@ -4,19 +4,17 @@ Send FAX:
 1) go to http://srvip/sendfax
 2) load file (tif, jpg, pdf)
 3) get code
-----------
 4) call to recipient
 5) recipient should transfer you to its local fax machine
 6) transfer call to code number (stage 3)
-----------
 7) Done
-
+------------------------------------
 Copy sendfax directory to www dir
 
 cp sendfax/ /var/www/sendfax/
 echo "Alias /sendfax /var/www/sendfax" > /etc/apache2/conf.d/sendfax.conf
 chown -R www:www /var/www/sendfax/
-
+------------------------------------
 In extensions.conf
 
 [send_fax]
