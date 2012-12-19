@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd /tmp
+wget https://github.com/firkeuf/send-fax-from-asterisk/archive/master.zip
+unzip master.zip
+cp send-fax-from-asterisk-master/sendfax/ /var/www/sendfax/
+echo "Alias /sendfax /var/www/sendfax" > /etc/apache2/conf.d/sendfax.conf
+
