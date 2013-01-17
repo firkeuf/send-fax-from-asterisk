@@ -103,7 +103,7 @@ if ($ext == "tiff")  {
 if($error == $ERROR_NO_ERROR && $input_file_type == "pdf") {
 
 	// convert the attached PDF to .tif using ghostsccript ... 
-	$gs_command = "/usr/local/bin/gs -q -dNOPAUSE -dBATCH -dSAFER -sDEVICE=tiffg3 -sOutputFile=${output_file} -f $input_file " ;
+	$gs_command = "/usr/local/bin/convert -define quantum:polarity=min-is-white -rotate '90>' -density 204x196 -resize 1728x -compress Group4 -type bilevel -monochrome ${input_file} ${output_file}" ;
 	$gs_command_output = system($gs_command, $retval);
         unlink($input_file);
         chmod($output_file, 0660);
